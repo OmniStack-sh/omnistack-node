@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Omnistack REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found on [help.omnistack.sh](https://help.omnistack.sh/). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.omnistack.sh](https://docs.omnistack.sh). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
