@@ -157,13 +157,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['OMNISTACK_BASE_URL'] = ''; // empty
       const client = new Omnistack({ bearerToken: 'My Bearer Token' });
-      expect(client.baseURL).toEqual('https://api.openai.com/v1');
+      expect(client.baseURL).toEqual('https://api.omnistack.sh/openai/v1');
     });
 
     test('blank env variable', () => {
       process.env['OMNISTACK_BASE_URL'] = '  '; // blank
       const client = new Omnistack({ bearerToken: 'My Bearer Token' });
-      expect(client.baseURL).toEqual('https://api.openai.com/v1');
+      expect(client.baseURL).toEqual('https://api.omnistack.sh/openai/v1');
     });
   });
 
