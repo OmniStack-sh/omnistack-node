@@ -10,7 +10,7 @@ export interface ClientOptions {
   /**
    * The bearer token required for authorization
    */
-  bearerToken?: string | undefined;
+  apiKey?: string | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -73,14 +73,14 @@ export interface ClientOptions {
  * API Client for interfacing with the Omnistack API.
  */
 export class Omnistack extends Core.APIClient {
-  bearerToken: string;
+  apiKey: string;
 
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Omnistack API.
    *
-   * @param {string | undefined} [opts.bearerToken=process.env['OMNISTACK_API_KEY'] ?? undefined]
+   * @param {string | undefined} [opts.apiKey=process.env['OMNISTACK_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['OMNISTACK_BASE_URL'] ?? https://api.omnistack.sh/openai/v1] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -91,17 +91,17 @@ export class Omnistack extends Core.APIClient {
    */
   constructor({
     baseURL = Core.readEnv('OMNISTACK_BASE_URL'),
-    bearerToken = Core.readEnv('OMNISTACK_API_KEY'),
+    apiKey = Core.readEnv('OMNISTACK_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
-    if (bearerToken === undefined) {
+    if (apiKey === undefined) {
       throw new Errors.OmnistackError(
-        "The OMNISTACK_API_KEY environment variable is missing or empty; either provide it, or instantiate the Omnistack client with an bearerToken option, like new Omnistack({ bearerToken: 'My Bearer Token' }).",
+        "The OMNISTACK_API_KEY environment variable is missing or empty; either provide it, or instantiate the Omnistack client with an apiKey option, like new Omnistack({ apiKey: 'My API Key' }).",
       );
     }
 
     const options: ClientOptions = {
-      bearerToken,
+      apiKey,
       ...opts,
       baseURL: baseURL || `https://api.omnistack.sh/openai/v1`,
     };
@@ -116,7 +116,7 @@ export class Omnistack extends Core.APIClient {
 
     this._options = options;
 
-    this.bearerToken = bearerToken;
+    this.apiKey = apiKey;
   }
 
   chats: API.Chats = new API.Chats(this);
@@ -134,7 +134,7 @@ export class Omnistack extends Core.APIClient {
   }
 
   protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
-    return { Authorization: `Bearer ${this.bearerToken}` };
+    return { Authorization: `Bearer ${this.apiKey}` };
   }
 
   static Omnistack = this;

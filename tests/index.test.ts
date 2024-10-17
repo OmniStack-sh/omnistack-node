@@ -23,7 +23,7 @@ describe('instantiate client', () => {
     const client = new Omnistack({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
     });
 
     test('they are used in the request', () => {
@@ -55,7 +55,7 @@ describe('instantiate client', () => {
       const client = new Omnistack({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
-        bearerToken: 'My Bearer Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo');
     });
@@ -64,7 +64,7 @@ describe('instantiate client', () => {
       const client = new Omnistack({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
-        bearerToken: 'My Bearer Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo&hello=world');
     });
@@ -73,7 +73,7 @@ describe('instantiate client', () => {
       const client = new Omnistack({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
-        bearerToken: 'My Bearer Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
     });
@@ -82,7 +82,7 @@ describe('instantiate client', () => {
   test('custom fetch', async () => {
     const client = new Omnistack({
       baseURL: 'http://localhost:5000/',
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
       fetch: (url) => {
         return Promise.resolve(
           new Response(JSON.stringify({ url, custom: true }), {
@@ -99,7 +99,7 @@ describe('instantiate client', () => {
   test('custom signal', async () => {
     const client = new Omnistack({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
       fetch: (...args) => {
         return new Promise((resolve, reject) =>
           setTimeout(
@@ -124,18 +124,12 @@ describe('instantiate client', () => {
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new Omnistack({
-        baseURL: 'http://localhost:5000/custom/path/',
-        bearerToken: 'My Bearer Token',
-      });
+      const client = new Omnistack({ baseURL: 'http://localhost:5000/custom/path/', apiKey: 'My API Key' });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
     test('no trailing slash', () => {
-      const client = new Omnistack({
-        baseURL: 'http://localhost:5000/custom/path',
-        bearerToken: 'My Bearer Token',
-      });
+      const client = new Omnistack({ baseURL: 'http://localhost:5000/custom/path', apiKey: 'My API Key' });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
@@ -144,55 +138,55 @@ describe('instantiate client', () => {
     });
 
     test('explicit option', () => {
-      const client = new Omnistack({ baseURL: 'https://example.com', bearerToken: 'My Bearer Token' });
+      const client = new Omnistack({ baseURL: 'https://example.com', apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://example.com');
     });
 
     test('env variable', () => {
       process.env['OMNISTACK_BASE_URL'] = 'https://example.com/from_env';
-      const client = new Omnistack({ bearerToken: 'My Bearer Token' });
+      const client = new Omnistack({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
       process.env['OMNISTACK_BASE_URL'] = ''; // empty
-      const client = new Omnistack({ bearerToken: 'My Bearer Token' });
+      const client = new Omnistack({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.omnistack.sh/openai/v1');
     });
 
     test('blank env variable', () => {
       process.env['OMNISTACK_BASE_URL'] = '  '; // blank
-      const client = new Omnistack({ bearerToken: 'My Bearer Token' });
+      const client = new Omnistack({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.omnistack.sh/openai/v1');
     });
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new Omnistack({ maxRetries: 4, bearerToken: 'My Bearer Token' });
+    const client = new Omnistack({ maxRetries: 4, apiKey: 'My API Key' });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new Omnistack({ bearerToken: 'My Bearer Token' });
+    const client2 = new Omnistack({ apiKey: 'My API Key' });
     expect(client2.maxRetries).toEqual(2);
   });
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['OMNISTACK_API_KEY'] = 'My Bearer Token';
+    process.env['OMNISTACK_API_KEY'] = 'My API Key';
     const client = new Omnistack();
-    expect(client.bearerToken).toBe('My Bearer Token');
+    expect(client.apiKey).toBe('My API Key');
   });
 
   test('with overriden environment variable arguments', () => {
     // set options via env var
-    process.env['OMNISTACK_API_KEY'] = 'another My Bearer Token';
-    const client = new Omnistack({ bearerToken: 'My Bearer Token' });
-    expect(client.bearerToken).toBe('My Bearer Token');
+    process.env['OMNISTACK_API_KEY'] = 'another My API Key';
+    const client = new Omnistack({ apiKey: 'My API Key' });
+    expect(client.apiKey).toBe('My API Key');
   });
 });
 
 describe('request building', () => {
-  const client = new Omnistack({ bearerToken: 'My Bearer Token' });
+  const client = new Omnistack({ apiKey: 'My API Key' });
 
   describe('Content-Length', () => {
     test('handles multi-byte characters', () => {
@@ -234,7 +228,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Omnistack({ bearerToken: 'My Bearer Token', timeout: 10, fetch: testFetch });
+    const client = new Omnistack({ apiKey: 'My API Key', timeout: 10, fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -264,7 +258,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Omnistack({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Omnistack({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -288,7 +282,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Omnistack({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Omnistack({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -317,7 +311,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Omnistack({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Omnistack({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -344,7 +338,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Omnistack({ bearerToken: 'My Bearer Token', fetch: testFetch });
+    const client = new Omnistack({ apiKey: 'My API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -371,7 +365,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Omnistack({ bearerToken: 'My Bearer Token', fetch: testFetch });
+    const client = new Omnistack({ apiKey: 'My API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
