@@ -4,7 +4,7 @@ import Omnistack from 'omnistack';
 import { Response } from 'node-fetch';
 
 const client = new Omnistack({
-  bearerToken: 'My Bearer Token',
+  apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
