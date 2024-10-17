@@ -20,7 +20,7 @@ or products provided by Omnistack please follow the respective company's securit
 
 ### Omnistack Terms and Policies
 
-Please contact dev-feedback@omnistack.com for any questions or concerns regarding security of our services.
+Please contact hi@omnistack.com for any questions or concerns regarding security of our services.
 
 ---
 
