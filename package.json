@@ -1,6 +1,6 @@
 {
   "name": "omnistack",
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0-alpha.2",
   "description": "The official TypeScript library for the Omnistack API",
   "author": "Omnistack <hi@omnistack.com>",
   "types": "dist/index.d.ts",
