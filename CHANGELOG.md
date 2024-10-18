@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2024-10-18)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/OmniStack-sh/omnistack-node/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Features
+
+* **api:** api update ([#5](https://github.com/OmniStack-sh/omnistack-node/issues/5)) ([d6c11e0](https://github.com/OmniStack-sh/omnistack-node/commit/d6c11e04f77a59490db5109df0b0a67c461192c8))
+
 ## 0.1.0-alpha.2 (2024-10-18)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.2](https://github.com/OmniStack-sh/omnistack-node/compare/v0.0.1-alpha.0...v0.1.0-alpha.2)
