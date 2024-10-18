@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'omnistack/core';
-import { Blob } from 'omnistack/_shims/index';
-import { toFile } from 'omnistack';
+import { multipartFormRequestOptions, createForm } from 'omnistack-node/core';
+import { Blob } from 'omnistack-node/_shims/index';
+import { toFile } from 'omnistack-node';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

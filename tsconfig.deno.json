@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "omnistack/_shims/auto/*": ["deno/_shims/auto/*-deno"],
-      "omnistack/*": ["deno/*"],
-      "omnistack": ["deno/index.ts"],
+      "omnistack-node/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "omnistack-node/*": ["deno/*"],
+      "omnistack-node": ["deno/index.ts"],
     },
     "noEmit": true,
     "declaration": true,
