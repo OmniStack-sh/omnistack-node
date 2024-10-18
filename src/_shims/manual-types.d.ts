@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import 'omnistack/shims/node'
- *   import 'omnistack/shims/web'
+ *   import 'omnistack-node/shims/node'
+ *   import 'omnistack-node/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */

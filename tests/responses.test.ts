@@ -1,5 +1,5 @@
-import { createResponseHeaders } from 'omnistack/core';
-import { Headers } from 'omnistack/_shims/index';
+import { createResponseHeaders } from 'omnistack-node/core';
+import { Headers } from 'omnistack-node/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

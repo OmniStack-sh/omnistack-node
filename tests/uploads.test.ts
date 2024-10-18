@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from 'omnistack/uploads';
-import { File } from 'omnistack/_shims/index';
+import { toFile, type ResponseLike } from 'omnistack-node/uploads';
+import { File } from 'omnistack-node/_shims/index';
 
 class MyClass {
   name: string = 'foo';

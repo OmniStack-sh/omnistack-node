@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Omnistack from 'omnistack';
+import Omnistack from 'omnistack-node';
 import { Response } from 'node-fetch';
 
 const client = new Omnistack({

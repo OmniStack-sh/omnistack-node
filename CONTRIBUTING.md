@@ -55,12 +55,12 @@ $ cd omnistack-node
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link omnistack
+$ yarn link omnistack-node
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global omnistack
+$ pnpm link -—global omnistack-node
 ```
 
 ## Running tests
