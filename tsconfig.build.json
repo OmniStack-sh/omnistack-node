@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "omnistack/*": ["dist/src/*"],
-      "omnistack": ["dist/src/index.ts"],
+      "omnistack-node/*": ["dist/src/*"],
+      "omnistack-node": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,
