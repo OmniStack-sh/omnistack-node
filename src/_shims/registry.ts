@@ -42,12 +42,12 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import 'omnistack/shims/${shims.kind}'\` before importing anything else from omnistack`,
+      `you must \`import 'omnistack-node/shims/${shims.kind}'\` before importing anything else from omnistack-node`,
     );
   }
   if (kind) {
     throw new Error(
-      `can't \`import 'omnistack/shims/${shims.kind}'\` after \`import 'omnistack/shims/${kind}'\``,
+      `can't \`import 'omnistack-node/shims/${shims.kind}'\` after \`import 'omnistack-node/shims/${kind}'\``,
     );
   }
   auto = options.auto;

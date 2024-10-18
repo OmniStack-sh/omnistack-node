@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Omnistack from 'omnistack';
-import { APIUserAbortError } from 'omnistack';
-import { Headers } from 'omnistack/core';
+import Omnistack from 'omnistack-node';
+import { APIUserAbortError } from 'omnistack-node';
+import { Headers } from 'omnistack-node/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {

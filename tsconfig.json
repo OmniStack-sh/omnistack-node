@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "omnistack/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "omnistack/*": ["src/*"],
-      "omnistack": ["src/index.ts"],
+      "omnistack-node/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "omnistack-node/*": ["src/*"],
+      "omnistack-node": ["src/index.ts"],
     },
     "noEmit": true,
 
