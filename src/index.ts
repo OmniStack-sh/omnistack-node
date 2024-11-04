@@ -1,10 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import { CompletionCreateParams, CompletionCreateResponse, Completions } from './resources/completions';
+import { Chats } from './resources/chats/chats';
 
 export interface ClientOptions {
   /**
@@ -158,7 +160,7 @@ export class Omnistack extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+export {
   OmnistackError,
   APIError,
   APIConnectionError,
@@ -172,23 +174,28 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
+} from './error';
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Omnistack {
-  export import RequestOptions = Core.RequestOptions;
+Omnistack.Chats = Chats;
+Omnistack.Completions = Completions;
 
-  export import Chats = API.Chats;
+export declare namespace Omnistack {
+  export type RequestOptions = Core.RequestOptions;
 
-  export import Completions = API.Completions;
-  export import CompletionCreateResponse = API.CompletionCreateResponse;
-  export import CompletionCreateParams = API.CompletionCreateParams;
+  export { Chats as Chats };
 
-  export import ProjectAPIKey = API.ProjectAPIKey;
-  export import ProjectServiceAccount = API.ProjectServiceAccount;
-  export import ProjectUser = API.ProjectUser;
+  export {
+    Completions as Completions,
+    type CompletionCreateResponse as CompletionCreateResponse,
+    type CompletionCreateParams as CompletionCreateParams,
+  };
+
+  export type ProjectAPIKey = API.ProjectAPIKey;
+  export type ProjectServiceAccount = API.ProjectServiceAccount;
+  export type ProjectUser = API.ProjectUser;
 }
 
 export default Omnistack;
