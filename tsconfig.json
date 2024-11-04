@@ -11,7 +11,7 @@
     "paths": {
       "omnistack-node/_shims/auto/*": ["src/_shims/auto/*-node"],
       "omnistack-node/*": ["src/*"],
-      "omnistack-node": ["src/index.ts"],
+      "omnistack-node": ["src/index.ts"]
     },
     "noEmit": true,
 
@@ -32,6 +32,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+		"isolatedModules": false,
 
     "skipLibCheck": true
   }

@@ -2,4 +2,4 @@
 
 export * from './shared';
 export { Chats } from './chats/chats';
-export { CompletionCreateResponse, CompletionCreateParams, Completions } from './completions';
+export { Completions, type CompletionCreateResponse, type CompletionCreateParams } from './completions';
