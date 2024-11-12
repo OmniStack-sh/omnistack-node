@@ -160,28 +160,8 @@ export class Omnistack extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  OmnistackError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 Omnistack.Chats = Chats;
 Omnistack.Completions = Completions;
-
 export declare namespace Omnistack {
   export type RequestOptions = Core.RequestOptions;
 
@@ -197,5 +177,22 @@ export declare namespace Omnistack {
   export type ProjectServiceAccount = API.ProjectServiceAccount;
   export type ProjectUser = API.ProjectUser;
 }
+
+export { toFile, fileFromPath } from 'omnistack-node/uploads';
+export {
+  OmnistackError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from 'omnistack-node/error';
 
 export default Omnistack;
