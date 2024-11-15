@@ -178,7 +178,7 @@ export declare namespace Omnistack {
   export type ProjectUser = API.ProjectUser;
 }
 
-export { toFile, fileFromPath } from 'omnistack-node/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   OmnistackError,
   APIError,
@@ -193,6 +193,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from 'omnistack-node/error';
+} from './error';
 
 export default Omnistack;
