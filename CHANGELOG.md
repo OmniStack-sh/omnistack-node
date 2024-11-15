@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2024-11-15)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/OmniStack-sh/omnistack-node/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Chores
+
+* rebuild project due to codegen change ([#10](https://github.com/OmniStack-sh/omnistack-node/issues/10)) ([60aca76](https://github.com/OmniStack-sh/omnistack-node/commit/60aca76a6b443d636eeae13750f1858bc8fd07f9))
+* rebuild project due to codegen change ([#11](https://github.com/OmniStack-sh/omnistack-node/issues/11)) ([ed48ff3](https://github.com/OmniStack-sh/omnistack-node/commit/ed48ff3f6f4d51be5a5bfa5994eed3b3a430fb48))
+* rebuild project due to codegen change ([#12](https://github.com/OmniStack-sh/omnistack-node/issues/12)) ([89300f5](https://github.com/OmniStack-sh/omnistack-node/commit/89300f553297cfa4b100b5a4958c0323610abfb9))
+* rebuild project due to codegen change ([#8](https://github.com/OmniStack-sh/omnistack-node/issues/8)) ([f4f7860](https://github.com/OmniStack-sh/omnistack-node/commit/f4f78606f5ec44dd99cfb6983e583d48315a3e28))
+
 ## 0.1.0-alpha.3 (2024-10-18)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/OmniStack-sh/omnistack-node/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
